@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 
 class HonkBehavior(ABC):
-    @abstractmethod
-    
+    @abstractmethod 
     def honk(self):
         "How the car honks"
         pass

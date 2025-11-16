@@ -1,4 +1,4 @@
-from Cars import Cars
+from Car import Car
 
 from behaviors.concrete.diesel_drive import DieselDrive
 from behaviors.concrete.electric_drive import ElectricDrive
@@ -8,9 +8,9 @@ from behaviors.concrete.normal_honk import NormalHonk
 from behaviors.concrete.quiet_honk import QuietHonk
 
 def main():
-    truck = Cars("Ford F-150", AggressiveHonk(), DieselDrive())
-    ev = Cars("Tesla Model S", QuietHonk(), ElectricDrive())
-    muscle = Cars("Dodge Charger", NormalHonk(), GasDrive())
+    truck = Car("Ford F-150", AggressiveHonk(), DieselDrive())
+    ev = Car("Tesla Model S", QuietHonk(), ElectricDrive())
+    muscle = Car("Dodge Charger", NormalHonk(), GasDrive())
 
     truck.display()
     truck.perform_honk()

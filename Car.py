@@ -1,8 +1,8 @@
 from behaviors.honk_behavior import HonkBehavior
 from behaviors.drive_behavior import DriveBehavior
 
-# Cars class (Name, Honk type, Drive type)
-class Cars:
+# Car class (Name, Honk type, Drive type)
+class Car:
     def __init__(self, name: str, honk_behavior: HonkBehavior, drive_behavior: DriveBehavior):
         self.name = name
         self.honk_behavior = honk_behavior
