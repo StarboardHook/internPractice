@@ -4,6 +4,7 @@ class Configuration:
     """
     _instance = None # Singleton instance
     _initialized = False # To prevent re-initialization
+    _loaded = False # To track if configuration has been loaded
 
     def __new__(cls): # Override __new__ to control instance creation
         if Configuration._instance is None: # If no instance exists, create one
@@ -21,6 +22,9 @@ class Configuration:
         """
         Loads configuration from a file (simplified for this exercise).
         """
+        if self._loaded: # Prevent re-loading configuration
+            raise ValueError("Configuration has already been loaded.") # Raise error if already loaded
+        
         with open(filepath, 'r') as f:
             for line in f:
                 key, value = line.strip().split('=')
@@ -30,6 +34,8 @@ class Configuration:
                     self.database_url = value
                 elif key == "LOG_LEVEL":
                     self.log_level = value
+
+        self._loaded = True # Mark as loaded
 
     def get_api_key(self):
         return self.api_key
