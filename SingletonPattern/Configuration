@@ -1,0 +1,52 @@
+class Configuration:
+    """
+    A simple class to hold configuration settings.
+    """
+    _instance = None # Singleton instance
+    _initialized = False # To prevent re-initialization
+
+    def __new__(cls): # Override __new__ to control instance creation
+        if Configuration._instance is None: # If no instance exists, create one
+            Configuration._instance = super(Configuration, cls).__new__(cls) # Create the singleton instance
+        return Configuration._instance
+
+    def __init__(self):
+        if not self._initialized: # Initialize only once
+            self.api_key = None
+            self.database_url = None
+            self.log_level = "INFO"
+            self._initialized = True # Mark as initialized
+
+    def load_config(self, filepath: str):
+        """
+        Loads configuration from a file (simplified for this exercise).
+        """
+        with open(filepath, 'r') as f:
+            for line in f:
+                key, value = line.strip().split('=')
+                if key == "API_KEY":
+                    self.api_key = value
+                elif key == "DATABASE_URL":
+                    self.database_url = value
+                elif key == "LOG_LEVEL":
+                    self.log_level = value
+
+    def get_api_key(self):
+        return self.api_key
+
+    def get_database_url(self):
+        return self.database_url
+
+    def get_log_level(self):
+        return self.log_level
+
+# Example of potential problematic usage (creating multiple instances)
+if __name__ == "__main__":
+    config1 = Configuration()
+    config1.load_config("config.txt")
+    print(f"Config 1 - API Key: {config1.get_api_key()}")
+
+    config2 = Configuration() # Oops! Another instance created
+    print(f"Config 2 - API Key (before loading): {config2.get_api_key()}")
+    config2.load_config("another_config.txt") # Potentially different settings
+    print(f"Config 2 - API Key (after loading another config): {config2.get_api_key()}")
