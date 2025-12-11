@@ -50,7 +50,7 @@ The factory decides **which object to create**, improving modularity and scalabi
 ---
 
 ## Example
-Internship Implementation: [View Code](internPractice/FactoryPattern)
+Internship Implementation: [View Code](./FactoryPattern)
 ```python
 class Shape:
     def draw(self): pass
