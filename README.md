@@ -106,6 +106,7 @@ When the subject's state changes, all observers are automatically notified.
 ---
 
 ## Example
+Internship Implementation: [View Code](./ObserverPattern)
 ```python
 class Subject:
     def __init__(self):
@@ -160,6 +161,7 @@ Ensures that only one instance of a class exists and provides a global access po
 - Useful for app-wide shared configuration
 
 ## Example
+Internship Implementation: [View Code](./SingletonPattern)
 ```python
 class Singleton:
     _instance = None
