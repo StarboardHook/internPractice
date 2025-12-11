@@ -3,6 +3,8 @@
 A concise demonstration of fundamental design patterns widely used in software engineering:.
 Each section includes an explanation, use cases, benefits, and Python examples.
 
+Examples were created as part of my internship work to showcase my understanding of core design patterns. Each project demonstrates how the pattern is applied in real-world scenarios using Python, with a focus on clean architecture and maintainable code.
+
 ---
 
 ## 📚 Table of Contents
